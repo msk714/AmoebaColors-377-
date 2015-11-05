@@ -249,12 +249,25 @@ public class playerController : MonoBehaviour {
 			if (Input.touchCount > 0)
 			{
 				// The screen has been touched so store the touch
-				Touch touch = Input.GetTouch (0);
-				
-				if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
+				Touch touch1 = Input.GetTouch (0);
+
+				if (amoebaColor == 2)
+				{
+					RaycastHit hit;
+					Ray ray = Camera.main.ScreenPointToRay(touch1.deltaPosition);
+					if (Physics.Raycast(ray, out hit))
+						if (hit.collider != null)
+							if (hit.collider.gameObject.tag == "Player")
+							{
+								Debug.Log ("Yayyy");
+							}
+					}
+
+
+				if (touch1.phase == TouchPhase.Stationary || touch1.phase == TouchPhase.Moved)
 				{
 					// If the finger is on the screen, move the object smoothly to the touch position
-					touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));  
+					touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch1.position.x, touch1.position.y, 10));  
 					//reverseTouchPosition = new Vector3 (-touchPosition.x, -touchPosition.y, 10);
 						Vector3 direction = (touchPosition - transform.position).normalized * baseSpeed * Time.smoothDeltaTime * 2200;
 						myRigidbody.velocity = direction;		

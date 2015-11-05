@@ -13,7 +13,6 @@ GameObject:
   - 50: {fileID: 5088324}
   - 58: {fileID: 5829858}
   - 114: {fileID: 11458348}
-  - 114: {fileID: 11488462}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Dangerous
@@ -74,17 +73,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 50
---- !u!114 &11488462
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac9cb2391de58947adbfc3e5f775d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11499608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,9 +85,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0, z: 0}
-  maxMoveSpeed: 4
+  maxMoveSpeed: 6
   minMoveSpeed: 1
-  speedChangeRate: .00999999978
+  speedChangeRate: .0299999993
   maxDist: 10
   moveSpeed: 0
 --- !u!212 &21290596
@@ -138,6 +126,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxMoveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speedChangeRate
+      value: .0299999993
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

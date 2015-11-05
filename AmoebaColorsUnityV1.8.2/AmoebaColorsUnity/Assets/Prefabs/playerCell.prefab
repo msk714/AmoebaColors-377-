@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355a368f02db89f4ab8ccb041d2d56ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: .100000001
+  baseSpeed: .300000012
   playerSize: 1
   hasKey: 0
   startPos: {x: 0, y: 0}
@@ -147,7 +147,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseSpeed
-      value: .100000001
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: usingTouch

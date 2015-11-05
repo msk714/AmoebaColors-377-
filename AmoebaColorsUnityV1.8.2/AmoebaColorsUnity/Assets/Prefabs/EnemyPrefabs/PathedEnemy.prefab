@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCheckPoint: []
-  moveSpeed: 0
+  moveSpeed: 6
   loopPath: 0
 --- !u!212 &21266122
 SpriteRenderer:
@@ -129,6 +129,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loopPath
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

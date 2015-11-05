@@ -634,7 +634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491382, guid: b808a78a7d90034409774163ef4261d5, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: b808a78a7d90034409774163ef4261d5, type: 2}
       propertyPath: enemyCheckPoint.Array.data[0]
@@ -1436,7 +1436,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 499958, guid: 7a78fa0490417af468579c3314c5cd92, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11499608, guid: 7a78fa0490417af468579c3314c5cd92, type: 2}
       propertyPath: minMoveSpeed
@@ -1590,7 +1590,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 499958, guid: 7a78fa0490417af468579c3314c5cd92, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11499608, guid: 7a78fa0490417af468579c3314c5cd92, type: 2}
       propertyPath: minMoveSpeed

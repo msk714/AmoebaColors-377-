@@ -6,7 +6,7 @@ public class gameScoreScript : MonoBehaviour {
 
 	public bool timerOn = true;
 
-	private float timeCur;
+	public float timeCur;
 	private float timeStart = 0f;
 	private float savedTime = 0f;
 
@@ -59,10 +59,8 @@ public class gameScoreScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-
 		timeCur = timeStart;
 		savedLevel = Application.loadedLevelName;
-
 	}
 	
 	// Update is called once per frame

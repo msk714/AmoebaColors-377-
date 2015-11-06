@@ -95,8 +95,9 @@ MonoBehaviour:
   startRespawnTimer: 0
   respawnTimer: 1
   reverseMag: 0
-  magForceMultiplier: 1
-  magneticDistance: 4
+  magForceMultiplier: 10
+  magneticDistance: 8
+  RepelVersionPlayer: {fileID: 176194}
   canLaunch: 0
   usingTouch: 1
   amoebaColor: 0
@@ -156,6 +157,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RepelVersionPlayer
+      value: 
+      objectReference: {fileID: 176194}
+    - target: {fileID: 0}
+      propertyPath: magForceMultiplier
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: magneticDistance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

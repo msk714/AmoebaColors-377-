@@ -23,12 +23,14 @@ public class playerController : MonoBehaviour {
 	private Vector2 mousePosition2D;
 	private Vector3 mousePosition3D;
 	private Vector3 touchPosition3D;
-	
+
+	//Green Mechanic Variables
 	//Magnetic Forces
 	public bool reverseMag = false;
 	public float magForceMultiplier = 1.0f;
 	private float magneticForce;
 	public float magneticDistance = 4;			// the distance at which the pointer must be to affect an instance of the player
+	public GameObject RepelVersionPlayer;
 	
 	//Health System
 	private Sprite currentSprite;
@@ -49,15 +51,18 @@ public class playerController : MonoBehaviour {
 	private float playerSpeed;
 	private int touchCount= 0;
 	public bool canLaunch;
-	
-	private bool touchPlayer;
 
 
+	//Yellow Mechanic Variables
 	private float length = 0;
-	private bool SW = false;
+	private bool Swipe = false;
 	private Vector3 final;
 	private Vector3 startpos;
 	private Vector3 endpos;
+
+
+
+
 
 	
 	public bool usingTouch = true;		//false if you want to use keyboard
@@ -84,9 +89,22 @@ public class playerController : MonoBehaviour {
 	{
 		renderer.sprite = cellGreen;
 		amoebaColor = 3;
-		
+		reverseMag = true;
+
+
 	}
-	
+
+
+	public void spawnMiniMes(int howMany, float Distance)
+	{
+		for (int count =0; count <howMany; count++)
+		{
+			Vector3 randomLoc = new Vector3(Random.Range(myTransform.x - Distance, myTransform.x + Distance), Random.Range(-myTransform.y - Distance,myTransform.y + Distance), 0);
+			GameObject newPlayer = Instantiate(RepelVersionPlayer, randomLoc, Quaternion.identity) as GameObject;
+			newPlayer.GetComponent<playerController>().reverseMag = true;
+		}
+	}
+
 	void changeStartColor()
 	{
 		if (amoebaColor==1)
@@ -219,8 +237,7 @@ public class playerController : MonoBehaviour {
 		startSize = transform.localScale;
 		
 		changeStartColor();
-		
-		touchPlayer = false;
+
 	}
 	
 	void FixedUpdate(){
@@ -265,33 +282,29 @@ public class playerController : MonoBehaviour {
 				// The screen has been touched so store the touch
 				Touch touch = Input.GetTouch (0);
 
-
-
 				if (amoebaColor==2)
 				{
-					
-					
 					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) 
 					{
 						final = Vector3.zero;
 						length = 0;
-						SW = false;
+						Swipe = false;
 						Vector2 touchDeltaPosition = Input.GetTouch (0).position;
 						startpos = new Vector3 (touchDeltaPosition.x, 0, touchDeltaPosition.y);
 					}      
 					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) 
 					{
-						SW = true;
+						Swipe = true;
 					}
 					
 					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Canceled) 
 					{
-						SW = false;
+						Swipe = false;
 					}
 
 					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended) 
 					{
-						if (SW) 
+						if (Swipe) 
 						{
 							Vector3 curTouchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0));  
 							endpos = new Vector3 (curTouchPosition.x, curTouchPosition.y, 0);
@@ -302,7 +315,10 @@ public class playerController : MonoBehaviour {
 						}
 					}
 				}
-					
+				else if(amoebaColor==3)
+				{
+					RepelPlayer(usingTouch);
+				}
 					
 				else if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
 				{
@@ -349,7 +365,7 @@ public class playerController : MonoBehaviour {
 		
 		
 		//Debug.Log (playerSpeed);
-		calculateAmeobaSize();
+		//calculateAmeobaSize();
 		
 		if (startRespawnTimer = true)
 		{
@@ -403,9 +419,12 @@ public class playerController : MonoBehaviour {
 			}
 			if (powerUpRef.powerUpType == 3)
 			{
-				changeToGreen();
+
 				
 				other.gameObject.SetActiveRecursively (false);
+				changeToGreen();
+				spawnMiniMes(4, 0.04f);
+				reverseMag = true;
 			}
 			
 		}

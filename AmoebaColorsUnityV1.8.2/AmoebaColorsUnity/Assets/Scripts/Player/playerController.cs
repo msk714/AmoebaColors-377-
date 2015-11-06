@@ -51,7 +51,14 @@ public class playerController : MonoBehaviour {
 	public bool canLaunch;
 	
 	private bool touchPlayer;
-	
+
+
+	private float length = 0;
+	private bool SW = false;
+	private Vector3 final;
+	private Vector3 startpos;
+	private Vector3 endpos;
+
 	
 	public bool usingTouch = true;		//false if you want to use keyboard
 	
@@ -253,24 +260,63 @@ public class playerController : MonoBehaviour {
 		else
 		{
 			
-			if (Input.touchCount > 0)
+			if (Input.touchCount > 0 || Input.GetKey("l"))
 			{
 				// The screen has been touched so store the touch
 				Touch touch = Input.GetTouch (0);
-				
-				if  (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
+
+
+
+				if (amoebaColor==2)
+				{
+					
+					
+					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) 
+					{
+						final = Vector3.zero;
+						length = 0;
+						SW = false;
+						Vector2 touchDeltaPosition = Input.GetTouch (0).position;
+						startpos = new Vector3 (touchDeltaPosition.x, 0, touchDeltaPosition.y);
+					}      
+					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) 
+					{
+						SW = true;
+					}
+					
+					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Canceled) 
+					{
+						SW = false;
+					}
+
+					if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended) 
+					{
+						if (SW) 
+						{
+							Vector3 curTouchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0));  
+							endpos = new Vector3 (curTouchPosition.x, curTouchPosition.y, 0);
+							final = endpos - startpos;
+							length = final.magnitude;
+							Vector3 direction = (curTouchPosition - transform.position).normalized * baseSpeed * Time.smoothDeltaTime * 2200;
+							myRigidbody.AddForce(new Vector2 (direction.x,direction.y)*length/500, ForceMode2D.Impulse);
+						}
+					}
+				}
+					
+					
+				else if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
 				{
 					// If the finger is on the screen, move the object smoothly to the touch position
 					touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));  
 					//reverseTouchPosition = new Vector3 (-touchPosition.x, -touchPosition.y, 10);
 					Vector3 direction = (touchPosition - transform.position).normalized * baseSpeed * Time.smoothDeltaTime * 2200;
 					myRigidbody.velocity = direction;		
-					
+
 				}
 			}
 			else
 			{
-				myRigidbody.velocity = Vector3.zero;
+				//myRigidbody.velocity = Vector3.zero;
 			}
 		}
 	}

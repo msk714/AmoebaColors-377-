@@ -58,6 +58,7 @@ public class playerController : MonoBehaviour {
 	public bool usingTouch = true;		//false if you want to use keyboard
 
 	private string currentPickup = "none";
+	public GameObject currentkeyRef;
 
 	public int amoebaColor = 0;		// 0  is neutral (grey), 1 is blue, 2 is yellow
 
@@ -385,23 +386,8 @@ public class playerController : MonoBehaviour {
 		{			
 			if (amoebaColor == 1)	//we can only pick stuff up if we are blue(1)
 			{
-				currentPickup = other.gameObject.GetComponent<pickupHolderScript>().pickupName;
-				//currentPickup = pickupNameRef.pickupName;							//store the pickups name in a string
+				//currentkeyRef = other.gameObject;
 
-				//keyArray.Add(other.gameObject);
-
-				if(other.gameObject.GetComponent<pickupFollowMovement>().canAdd == true)
-					{
-						numberOfKeys ++;
-						Debug.Log (numberOfKeys);
-						other.gameObject.GetComponent<pickupFollowMovement>().canAdd = false;
-
-					}
-					if(other.gameObject.GetComponent<pickupFollowMovement>().isFollowing == true)
-					{						
-						hasKey = true;
-					}
-				Debug.Log ("Now holding: " + currentPickup);
 			}
 		}
 
@@ -409,16 +395,15 @@ public class playerController : MonoBehaviour {
 		{
 			doorLockedScript doorRef = other.gameObject.GetComponent<doorLockedScript>();
 
-
-			//int tempKey = keyArray.Count;
 			Debug.Log (numberOfKeys);
-			//keyArray.RemoveAt(tempKey);
+
+			currentkeyRef.SetActiveRecursively(false);
 			 
 
 			if (numberOfKeys > 0)
 			{
 				other.gameObject.SetActive (false);
-
+				numberOfKeys --;
 
 			}
 		}

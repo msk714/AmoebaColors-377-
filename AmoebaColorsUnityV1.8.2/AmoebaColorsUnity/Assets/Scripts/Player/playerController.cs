@@ -6,6 +6,10 @@ public class playerController : MonoBehaviour {
 
 
 
+
+	//THIS IS A COMMENT. Hi.
+
+
 	public float baseSpeed = 0.1f; //.1 is normal speed the player can move
 	public float playerSize = 1.0f;	//A player Size 1 is the smallest possible size
 	public bool hasKey = false; //checks if you have a key

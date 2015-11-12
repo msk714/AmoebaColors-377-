@@ -49,6 +49,7 @@ public class pickupFollowMovement : MonoBehaviour {
 		{
 			if (other.gameObject.GetComponent<playerController>().amoebaColor == 1)
 			{
+				other.gameObject.GetComponent<playerController>().currentkeyRef = this.gameObject;
 				hasBeenFollowing = true;
 				isFollowing = true;
 				player = other.gameObject;

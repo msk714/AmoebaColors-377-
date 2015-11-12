@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\UnityPlanetMapper\Assets\Scripts\scr_GameController.cs">
+    <Files>
+      <File FileName="..\..\..\UnityPlanetMapper\Assets\Scripts\scr_GameController.cs" Line="41" Column="28" />
+      <File FileName="..\..\..\UnityPlanetMapper\Assets\Scripts\scr_planetState.cs" Line="19" Column="2" />
+      <File FileName="..\..\..\UnityPlanetMapper\Assets\Scripts\scr_setUIText.cs" Line="31" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

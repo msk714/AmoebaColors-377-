@@ -3,9 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class playerController : MonoBehaviour {
+<<<<<<< HEAD
 	
 	
 	
+=======
+
+	//THE ADMIN OF THE MADMEN
+
+
+	//THIS IS A COMMENT. Hi.
+
+
+>>>>>>> 05490e34f3e716dff4ba641b7dda9b46bfa575fe
 	public float baseSpeed = 0.1f; //.1 is normal speed the player can move
 	public float playerSize = 1.0f;	//A player Size 1 is the smallest possible size
 	public bool hasKey = false; //checks if you have a key
@@ -60,6 +70,11 @@ public class playerController : MonoBehaviour {
 	private Vector3 startpos;
 	private Vector3 endpos;
 
+<<<<<<< HEAD
+=======
+	private string currentPickup = "none";
+	public GameObject currentkeyRef;
+>>>>>>> 05490e34f3e716dff4ba641b7dda9b46bfa575fe
 
 
 
@@ -433,6 +448,7 @@ public class playerController : MonoBehaviour {
 		{			
 			if (amoebaColor == 1)	//we can only pick stuff up if we are blue(1)
 			{
+<<<<<<< HEAD
 				currentPickup = other.gameObject.GetComponent<pickupHolderScript>().pickupName;
 				//currentPickup = pickupNameRef.pickupName;							//store the pickups name in a string
 				
@@ -450,12 +466,17 @@ public class playerController : MonoBehaviour {
 					hasKey = true;
 				}
 				Debug.Log ("Now holding: " + currentPickup);
+=======
+				//currentkeyRef = other.gameObject;
+
+>>>>>>> 05490e34f3e716dff4ba641b7dda9b46bfa575fe
 			}
 		}
 		
 		if (other.gameObject.CompareTag ("Door"))
 		{
 			doorLockedScript doorRef = other.gameObject.GetComponent<doorLockedScript>();
+<<<<<<< HEAD
 			
 			
 			//int tempKey = keyArray.Count;
@@ -468,6 +489,19 @@ public class playerController : MonoBehaviour {
 				other.gameObject.SetActive (false);
 				
 				
+=======
+
+			Debug.Log (numberOfKeys);
+
+			currentkeyRef.SetActiveRecursively(false);
+			 
+
+			if (numberOfKeys > 0)
+			{
+				other.gameObject.SetActive (false);
+				numberOfKeys --;
+
+>>>>>>> 05490e34f3e716dff4ba641b7dda9b46bfa575fe
 			}
 		}
 		if (other.gameObject.CompareTag ("Destructable"))

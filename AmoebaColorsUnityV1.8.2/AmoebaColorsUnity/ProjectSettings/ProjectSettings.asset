@@ -164,7 +164,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - m_Icon: {fileID: 0}
-      m_Size: 0
+      m_Size: 7128
   m_BuildTargetBatching:
   - m_BuildTarget: Android
     m_StaticBatching: 1

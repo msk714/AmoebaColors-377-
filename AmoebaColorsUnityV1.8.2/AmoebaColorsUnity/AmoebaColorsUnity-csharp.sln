@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{2AC3D1C6-5046-AB08-E856-B477D1969A63}") = "AmoebaColorsUnity", "Assembly-CSharp.csproj", "{470EE01A-6C12-114A-924A-288E5CAAA8A2}"
+Project("{2AC3D1C6-5046-AB08-E856-B477D1969A63}") = "AmoebaColorsUnity", "Assembly-CSharp-vs.csproj", "{470EE01A-6C12-114A-924A-288E5CAAA8A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,7 +17,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-								GlobalSection(MonoDevelopProperties) = preSolution
+									GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

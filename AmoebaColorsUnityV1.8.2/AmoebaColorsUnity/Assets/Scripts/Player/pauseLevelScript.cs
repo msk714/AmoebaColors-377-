@@ -8,7 +8,7 @@ public class pauseLevelScript : MonoBehaviour {
 	public bool gamePause;
 	public Vector2 buttonSize;
 
-	private GameObject theCamera1;
+	private GameObject theCamera1; 
 	private Vector2 pauseButtonPosition;
 
 	// Use this for initialization
@@ -48,15 +48,16 @@ public class pauseLevelScript : MonoBehaviour {
 			Time.timeScale = 1.0f;
 		}
 
-		var cameraHalfWidth = theCamera1.GetComponent<Camera>().orthographicSize * ((float)Screen.width / Screen.height);
-		var cameraHalfHeight = theCamera1.GetComponent<Camera>().orthographicSize * ((float)Screen.height / Screen.width);
+		var cameraHalfWidth = Screen.width / 2 - 50;
+		var cameraHalfHeight = Screen.height / 2 + 10;
 		pauseButtonPosition = new Vector2 (cameraHalfWidth, cameraHalfHeight);
 	}
 
 	void OnGUI(){
-		if (GUI.Button (new Rect (pauseButtonPosition, buttonSize), "UnPause")) 
-		{
-			gamePause = false;
+		if (gamePause == true) {
+			if (GUI.Button (new Rect (pauseButtonPosition, buttonSize), "UnPause")) {
+				gamePause = false;
+			}
 		}
 	}
 }

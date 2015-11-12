@@ -32,6 +32,7 @@ GameObject:
   - 124: {fileID: 12485268}
   - 81: {fileID: 8133296}
   - 114: {fileID: 11440846}
+  - 114: {fileID: 11415728}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -392,6 +393,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: .00499999989
   idleDivisor: 50
+--- !u!114 &11415728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f3c32d7de5ada47918d35e39883e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePause: 0
+  buttonSize: {x: 150, y: 100}
 --- !u!114 &11424178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -459,7 +473,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: buttonSize.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: buttonSize.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: gamePause
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150690}
